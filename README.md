@@ -39,6 +39,35 @@ Key packages are pinned: `torch==2.5.1`, `transformers==4.51.3`, `trl==0.16.0`, 
   ```
   Configure cookies via `YT_COOKIES` if the videos require authentication.
 
+# Download weights into checkpoints/
+
+Install HF tooling and (optionally) login:
+
+```pip install -U huggingface_hub
+huggingface-cli login   # optional; required only for gated models (not expected here)
+```
+
+Download the RL-tuned model (VideoRFT-3B):
+
+```huggingface-cli download QiWang98/VideoRFT-3B \
+  --local-dir checkpoints/VideoRFT-3B \
+  --local-dir-use-symlinks False
+```
+
+(Alternative) Download the SFT-only checkpoint if you want to compare:
+
+```huggingface-cli download QiWang98/VideoRFT-SFT-3B \
+  --local-dir checkpoints/VideoRFT-SFT-3B \
+  --local-dir-use-symlinks False
+```
+
+Then run evaluation with local weights:
+
+```python src/eval_bench.py \
+  --model_path checkpoints/VideoRFT-3B \
+  --file_name videommmu_subset
+```
+
 ## Running evaluation and analyses
 - Single evaluation run (defaults to `Evaluation/eval_videommmu_subset.json` inside the script):
   ```bash
