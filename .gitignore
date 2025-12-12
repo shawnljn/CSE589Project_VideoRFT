@@ -1,0 +1,54 @@
+# OS / editor cruft
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*.log
+
+# Python caches and virtual envs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.cache/
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Checkpoints, datasets, and large artifacts
+checkpoints/
+Evaluation/
+vllm/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+*.tar
+*.gz
+*.zip
+
+# Media (videos/audio) and bulky assets
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.mp3
+*.wav
+
+# Run outputs and experiment logs
+wandb/
+outputs/
+logs/
+*.out
+*.err
+
+# Notebooks
+.ipynb_checkpoints/
